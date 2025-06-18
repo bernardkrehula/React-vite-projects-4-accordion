@@ -1,43 +1,57 @@
 html {
   font-size: 62.5%;
 }
+body {
+  background-color: rgb(190, 245, 255);
+}
 .main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 800px;
-  background-color: rgb(88, 88, 88);
+  width: 1000px;
+  background-color: rgb(255, 255, 255);
   margin: 100px auto;
   padding: 0;
   text-align: center;
   gap: 30px;
   padding: 40px 40px;
+  border-radius: 10px;
+  padding-bottom: 90px;
 }
 .title {
   font-size: 8rem;
   font-weight: 500;
   margin: 0;
-  color: white;
 }
-.question {
-  display: flex;
+.question{
+  text-align: left;
   list-style: none;
-  font-size: 2.7rem;
-  background-color: antiquewhite;
+  font-size: 2.3rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 20px 1px rgb(0, 0, 0, 0.2);
+  padding: 0px 40px;
+  border-radius: 5px;
+}
+.question div {
+  display: flex;
   align-items: center;
-  box-shadow: 0px 0px 20px 5px rgb(0, 0, 0, 0.3);
- 
 }
 .question h3 {
   display: none;
+  font-weight: 500;
 }
 .question button {
   margin-left: auto;
   border: none;
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   color: white;
   background-color: rgb(39, 114, 131);
   height: 50px;
   width: 50px;
   border-radius: 100%;
+  cursor: pointer;
+}
+.question h2 {
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
 }
