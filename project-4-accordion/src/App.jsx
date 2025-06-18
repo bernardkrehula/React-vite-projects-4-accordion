@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import questions from './questions'
 import './App.css'
 
 function App() {
-  const showInfo = () => {
-    
-  }
+ const  [show, setShow] = useState(false); 
+
+ const toggleShow = (id) => {
+  setShow(lastState => lastState === id ? null : id)
+ }
+
   return (
     <>
       <div className='main'>
@@ -15,9 +19,9 @@ function App() {
           <li key={id} className='question'>
             <div>
               <h2>{title}</h2>
-              <button onClick={showInfo}>+</button>
+              <button onClick={() => toggleShow(id)}>+</button>
             </div>
-            <h3>{info}</h3>
+            <h3 style={{display: show === id ? 'block' : 'none'}}>{info}</h3>
           </li>
           )
         })}
@@ -26,4 +30,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
