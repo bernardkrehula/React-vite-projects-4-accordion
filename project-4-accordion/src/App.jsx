@@ -3,11 +3,14 @@ import questions from './questions'
 import './App.css'
 
 function App() {
- const  [show, setShow] = useState(false); 
+ const  [isExpanded, setExpanded] = useState(false); 
 
- const toggleShow = (id) => {
-  setShow(lastState => lastState === id ? null : id)
+ const SingleQuestion = (expanded) => {
+  setExpanded(!expanded);
  }
+//Napravi komponentu singleQuestion 
+//u tu komponentu napravi state isExpanded 
+//Na click dugmeta stavi da je taj isExpanded obrnuto od onoga sto je bio
 
   return (
     <>
@@ -16,13 +19,16 @@ function App() {
         {questions.map(question => {
           const { id, title, info } = question;
           return (
-          <li key={id} className='question'>
+          <>
+{/*           <SingleQuestion/>
+ */}        <li key={id} className='question'>
             <div>
               <h2>{title}</h2>
-              <button onClick={() => toggleShow(id)}>+</button>
+              <button onClick={() => SingleQuestion(isExpanded)}>+</button>
             </div>
-            <h3 style={{display: show === id ? 'block' : 'none'}}>{info}</h3>
+            <h3 style={{display: isExpanded ? 'block' : 'none'}}>{info}</h3>
           </li>
+          </>
           )
         })}
       </div>
