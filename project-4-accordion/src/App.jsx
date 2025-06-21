@@ -19,10 +19,10 @@ function App() {
       <div className='main'>
         <h1 className='title'>Questions</h1>
           {questionsData.map(question => {
-            const { id, title, info, isExpanded } = question;
-            
+            const { id, title, info } = question;
+
             return (
-              <SingleQuestion id={id} title={title} info={info} isExpanded={isExpanded}/>
+              <SingleQuestion id={id} title={title} info={info}/>
             )
           })}
       </div>
