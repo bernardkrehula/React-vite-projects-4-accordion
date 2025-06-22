@@ -10,27 +10,32 @@ import SingleQuestion from './SingleQuestion';
 //Tu funkciju proslijedi do singleQuestion
 //I pozovi je onClick u singleQuestion
 
-export const updateQuestions = (id) => {
-    const foundQuestion = questionsData.find(question => question.id === id);
-    return foundQuestion.isExpanded = !foundQuestion.isExpanded;
-  }
+
 
 function App() {
-  const [questions, setQuestions ] = useState({});
+  const [questions, setQuestions ] = useState(questionsData);
 
+  const updateQuestions = (id) => {
+    
+      setQuestions((prev) => {
+        return prev.map((question) => {
+          return question.id === id ? {...question, isExpanded: !question.isExpanded } : question
+        })
+      })
+  }
   return (
     <>
       <div className='main'>
         <h1 className='title'>Questions</h1>
-          {questionsData.map(question => {
-            const {id, title, info} = question;
+          {questions.map(question => {
             return (
-              <SingleQuestion key={id} id={id} title={title} info={info} />
+              <SingleQuestion key={id} {...question} updateQuestions={updateQuestions}/>
             )
           })}
       </div>
     </>
   )
 }
-
+const bla = {name: 'Bernard'}
+const bla2 = {...bla}
 export default App;

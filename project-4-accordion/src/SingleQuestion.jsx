@@ -1,18 +1,16 @@
 import { useState } from "react";
-import { updateQuestions } from "./App";
 
-const SingleQuestion = ({ id, title, info }) => {
-  const [getExpanded, setExpanded] = useState(false);
+const SingleQuestion = ({ id, title, info, isExpanded, updateQuestions }) => {
 
   return (
     <li className="question">
       <div>
         <h2>{title}</h2>
-        <button onClick={() => setExpanded(updateQuestions(id))}>
-          {getExpanded ? '-' : '+'}
+        <button onClick={() => updateQuestions(id)}>
+          {isExpanded ? '-' : '+'}
         </button>
       </div>
-      <h3 style={{ display: getExpanded ? 'block' : 'none' }}>{info}</h3>
+      <h3 style={{ display: isExpanded ? 'block' : 'none' }}>{info}</h3>
     </li>
   );
 };
